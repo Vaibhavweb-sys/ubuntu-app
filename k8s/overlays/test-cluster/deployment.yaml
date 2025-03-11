@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: troubleshooting-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dev-troubleshooting-app
+  template:
+    metadata:
+      labels: 
+        app: dev-troubleshooting-app
+    spec:
+      imagePullSecrets:
+      - name: gar-imagepull
+      containers:
+      - name: troubleshooting-app
+        securityContext:
+          capabilities:
+            add:
+            - NET_RAW
+        command: ["/bin/bash", "-c"]
+        args: ["while true; do echo hello; sleep 10; done"]
