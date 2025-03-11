@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: te-anthos-troubleshooting-app # add app name
+  name: troubleshooting-app # add app name
 spec:
   replicas: 1
   selector:
@@ -12,12 +12,12 @@ spec:
   template:
     metadata:
       labels: 
-        app: te-anthos-troubleshooting-app # overwritten by commonLabel in kustomization.yaml
+        app: troubleshooting-app # overwritten by commonLabel in kustomization.yaml
     spec:
       containers:
       - image: app # overwritten by images block in environment specific kustomization.yaml
         imagePullPolicy: Always
-        name:  te-anthos-troubleshooting-app # add app name
+        name:  troubleshooting-app # add app name
         securityContext:
           capabilities : 
             add: ["NET_ADMIN", "SYS_TIME"]
