@@ -12,7 +12,6 @@ spec:
       labels: 
         app: dev-troubleshooting-app
     spec:
-      imagePullSecrets:
       containers:
       - name: troubleshooting-app
         securityContext:
