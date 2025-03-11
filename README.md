@@ -1,3 +1,2 @@
-# te-anthos-troubleshooting-app
-This repo contain file required to spinup troubleshooting app.
-This app is deployed across all production and non-production clusters, but it’s not currently running. This is because we’ve set the replica count in the deployment.yaml file of each cluster’s overlay directory to 0 . If you need to troubleshoot, please adjust the replica count to 1 in the corresponding cluster overlay where you want to troubleshoot. We’ve created a directory for each cluster, named after the cluster itself, inside k8s/overlays. Once you’ve completed your testing, remember to reset the replica count back to 0 . You can get inside the troubleshooting app pod through the Argo CD of the corresponding cluster, all the commonly used command are pre-installed.
+# ubuntu-app
+
