@@ -13,7 +13,6 @@ spec:
         app: dev-troubleshooting-app
     spec:
       imagePullSecrets:
-      - name: gar-imagepull
       containers:
       - name: troubleshooting-app
         securityContext:
