@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: te-anthos-troubleshooting-app # add app name
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: te-anthos-troubleshooting-app # overwritten by commonLabel in kustomization.yaml
+  strategy: # set strategy, considering if the app can have multiple replicas or not https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
+    type: Recreate # Use Recreate here if you can only run 1 copy of your container at a time and remove the rolling update block above
+  template:
+    metadata:
+      labels: 
+        app: te-anthos-troubleshooting-app # overwritten by commonLabel in kustomization.yaml
+    spec:
+      containers:
+      - image: app # overwritten by images block in environment specific kustomization.yaml
+        imagePullPolicy: Always
+        name:  te-anthos-troubleshooting-app # add app name
+        securityContext:
+          capabilities : 
+            add: ["NET_ADMIN", "SYS_TIME"]
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "2048Mi"
+            #cpu: "4"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
