@@ -18,5 +18,5 @@ transformers:
     kind: NamespaceTransformer
     metadata:
       name: notImportantHere
-      namespace: dev-troubleshooting-app # set the namespace
+      namespace: test-app # set the namespace
     unsetOnly: true
