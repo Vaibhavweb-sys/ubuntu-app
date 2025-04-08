@@ -7,7 +7,7 @@ commonAnnotations:
   environment: dev
 images:
   - name: app
-    newName: localhost:5000/my-test-ubuntu-app
+    newName: my-test-ubuntu-app
     newTag: "latest"
     digest: 
 patchesStrategicMerge:
