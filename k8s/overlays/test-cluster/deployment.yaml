@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: troubleshooting-app
+  name: test-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: dev-troubleshooting-app
+      app: test-app
   template:
     metadata:
       labels: 
-        app: dev-troubleshooting-app
+        app: test-app
     spec:
       containers:
-      - name: troubleshooting-app
+      - name: test-app
         securityContext:
           capabilities:
             add:
